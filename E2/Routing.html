@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset='utf-8'>
+	<title>TouchCommerce Demo</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div class="wrapper routing"> 
+		<div class="header">
+			<img class="fitL" src="assets/logo-best-brands.png">
+			<img class="fitR" src="assets/btn-close.png">
+		</div>
+		<div class="accent"></div>
+
+		<div id="routing">
+			<div class="indent breadcrumb">
+				<p><a href="#">Home</a> / <a href="#">Existing Service</a> / Mobile</p>
+			</div>
+			<div class="indent app-body">
+				<p><strong>Which Mobile topic would you like help with?</strong></p>
+				<div id="billing" class="line-element">
+					<div class="left"><img class="inline" src="assets/icon-billing.png"></div><div class="right"><p>Billing and Payments</p></div>
+				</div>
+				<div class="line-element">
+					<div class="left"><img class="inline" src="assets/icon-tech-support.png"></div><div class="right"><p>Technical Support</p></div>
+				</div>
+				<div class="line-element">
+					<div class="left"><img class="inline" src="assets/icon-login.png"></div><div class="right"><p>Account Login Support</p></div>
+				</div>
+				<div class="line-element">
+					<div class="left"><img class="inline" src="assets/icon-other.png"></div><div class="right"><p>Other</p></div>
+				</div>
+				<div class="bump-10"></div>
+				<div class="line-element">
+					<div class="back left shift-left"><img class="back" src="assets/icon-back-button.png"></div><div class="right"><p class="shift-right dim"><strong>Back</strong></p></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="survey" hidden>
+			<div class="indent app-body">
+				<div class="bump-7"></div>
+				<strong><p>Which Mobile topic would you like help with?</p></strong>
+				<form id="user-form">
+					<p>Full Name:*</p>
+					<input id="person" name="person" type="text" placeholder="John Doe" class="icon-input person">
+					<div id="error-name" class="error" hidden>Full Name is a required field.</div>
+					<p>Mobile Phone Number:*</p>
+					<input id="phone" name="phone" type="text" placeholder="ex: 123-123-1234" class="icon-input phone">
+					<div id="error-phone" class="error" hidden>Mobile number is a required field.</div>
+					<p>State:</p>
+					<select name="state" id="select-container">
+						<option disabled selected>&nbsp&nbsp&nbsp&nbspSelect one</option>
+					</select>
+					<div id="follow-up"></div>
+					<p>Describe your question...</p>
+					<input name="desc" type="text" class="tall">
+					<input id="enter" type="button" value="Start Chat" class="button">
+					<p class="note"><span style="color:#FFCCCB">*</span>Required field</p>
+				</form>
+			</div>
+		</div>
+
+		<div id="complete" hidden>
+			<div class="indent app-body">
+				<div class="bump-7"></div>
+				<strong><p>Congratulations!! You have reached the chat agent.</p></strong>
+			</div>
+		</div>
+
+		<div class="foot"><img class="logo" src="assets/logo-tc.png"></div>
+	</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#survey').hide();
+		var States = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+
+		var abr = ['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']
+
+		States.forEach(function(state){
+			$("#select-container").append('<option value="' + state +'">&nbsp&nbsp&nbsp&nbsp' + state + '</option>');
+		})
+
+		$("#billing").click(function() {
+			$('.wrapper').addClass("survey").removeClass("routing");
+			$('#routing').hide("slow");
+			$('#survey').show("slow");
+		});
+
+		$('#enter').click(function(){
+			var fields = $('form').serializeArray();
+			var success = true;
+			if (fields[0]['value'] == ""){
+				$("#error-name").show();
+				$("#person").attr("style", "border-color:red;background-color:#FFCCCB");
+				success = false;
+			} else{
+				$("#person").removeAttr("style");
+				$("#error-name").hide();
+			}
+			if (!fields[1]['value'].match( /^[0-9]{3}\-[0-9]{3}\-[0-9]{4}$/g )){
+				$("#error-phone").show();
+				$("#phone").attr("style", "border-color:red;background-color:#FFCCCB");
+				success = false;
+			} else {
+				$("#phone").removeAttr("style");
+				$("#error-phone").hide();
+			}
+
+			if (success){
+				$('#routing').hide("slow");
+				$('#survey').hide("slow");
+				$('#complete').show("slow");
+			}
+		});
+
+		$('#select-container').change(function(){
+			var fields = $('form').serializeArray();
+			$('#follow-up').html('<p>Was your phone purchased in ' + getCode(fields[2]['value'], States, abr) + '?</p><select name="purchase"><option disabled selected>&nbsp&nbsp&nbsp&nbspSelect one</option><option>&nbsp&nbsp&nbsp&nbspYes</option><option>&nbsp&nbsp&nbsp&nbspNo</option></select>')
+		});
+	});
+
+	function getCode (state, States, abr){
+		for (var i = 0; i < States.length; i++){
+			if (state == States[i]){
+				return abr[i];
+			}
+		}
+	}
+
+</script>  
+</html>
