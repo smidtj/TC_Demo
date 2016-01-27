@@ -1,0 +1,230 @@
+body {
+	font-family: "Arial", Arial, Sans-serif;
+}
+
+.indent{
+	padding-left: 25px;
+}
+
+.breadcrumb{
+	padding-top: 7px;
+	font-size: 85%;
+}
+
+.app-body{
+	color: black;
+	margin-right: 25px;
+}
+
+.app-body .line-element{
+	font-size: 85%;
+}
+
+.app-body form{
+	font-size: 90%;
+}
+
+p {
+	font-size: inherit;
+	color: inherit;
+}
+
+a {
+	font-size: inherit;
+	color: inherit;
+	text-decoration: none;
+}
+
+.breadcrumb p {
+	font-size: inherit;
+	color: grey;
+}
+
+.breadcrumb a {
+	font-size: inherit;
+	color: green;
+	text-decoration: none;
+}
+
+.wrapper {
+	height: 470px;
+	width: 300px;
+	border: solid 1px #AAA;
+	border-radius: 15px 0px 0px 0px;
+	position: relative;	
+}
+
+.routing{
+	height: 470px;
+}
+
+.survey{
+	height: 625px;
+}
+
+.header {
+	height: 40px;
+	width: inherit;
+	background-color: #2E2D2A;
+	border-radius: inherit; 
+}
+
+.accent {
+	height: 5px;
+	width: inherit;
+	background-color: #D0E450 !important;
+}
+
+.fitL {
+	padding-top: 5px;
+	padding-left: 10px;
+	height: 135%;
+}
+
+.fitR {
+	padding-top: 15px;
+	padding-right: 15px;
+	float: right;
+	height: 15px;
+	width: 15px;
+}
+
+.inline {
+	height: 35px;
+	width: 35px;
+}
+
+.dim {
+	color: #AAA;
+}
+
+.bump-10 {
+	padding-top: 10px;
+}
+
+.bump-7 {
+	padding-top: 7px;
+}
+
+.foot {
+	background-color: #EEE;
+	position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    height: 20px;
+}
+
+.logo {
+	float: top;
+	height: 85%;
+	padding-left: 5px;
+}
+
+.line-element{
+	padding-top: 6px;
+	margin-left: -25px;
+	height: 50px;
+	width: 300px;
+}
+
+.line-element:hover{
+	color: green;
+	background-color: #EDFBDA;
+}
+
+.line-element:active{
+	color: white;
+	background-color: #9AD000; 
+}
+
+.left {
+	padding-left: 25px;
+	padding-top: 3px;
+	float: left;
+	width: 35px;
+}
+
+.right {
+	padding-left: 10px;
+	float: left;
+	width: 70%;
+}
+
+.shift-left{
+	padding-top: 17px;
+	margin-top: -10px;
+}
+
+.shift-right{
+	padding-top: 15px;
+	margin-top: -5px;
+}
+
+.back {
+	height: 20px;
+	width: 20px;	
+}
+
+.back .left {
+	padding-left: 25px;
+	float: left;
+	width: 25px;
+}
+
+input, select{
+	margin-top: -10px;
+	margin-bottom: 	10px;
+	border-radius: 3px;
+	border: solid 1px #DDD;
+	width: 	202px;
+	height: 30px;
+}
+
+select {
+	width: 	249px !important;
+}
+
+.tall {
+	height: 70px !important;
+	width: 	247px !important;
+}
+
+.icon-input {
+	padding-left: 45px;
+}
+
+.person {
+	background: url(assets/icon-form-avatar.png) no-repeat scroll;
+	background-position: 5px 6px;
+}
+
+.phone {
+	background: url(assets/icon-form-phone.png) no-repeat scroll;
+	background-position: 5px 6px;
+}
+
+.button {
+	margin-right: 1px;
+	font-size: 	105%;
+	margin-top: 15px;
+	width: 	110px;
+	border-radius: 5px;
+	border: solid 1px #DDD;
+	float: right;
+	color: white;
+	text-shadow: 1px 1px 1px grey;
+	background-color: #D0E450
+}
+
+.note {
+	position: absolute;
+	left: 204px;
+	bottom: 85px;
+	float: right;
+	font-size: 75% !important;
+	color: #AAA;
+}
+
+input:focus {
+	background-color: #EDFBDA; 
+}

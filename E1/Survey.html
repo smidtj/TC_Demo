@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset='utf-8'>
+	<title>TouchCommerce Demo</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div class="wrapper survey"> 
+		<div class="header">
+			<img class="fitL" src="assets/logo-best-brands.png">
+			<img class="fitR" src="assets/btn-close.png">
+		</div>
+		<div class="accent"></div>
+		<div class="indent app-body">
+			<div class="bump-7"></div>
+			<strong><p>Which Mobile topic would you like help with?</p></strong>
+			<form>
+				<p>Full Name:*</p>
+				<input type="text" placeholder="John Doe" class="icon-input person">
+				<p>Mobile Phone Number:*</p>
+				<input type="text" placeholder="ex: 123-123-1234" class="icon-input phone">
+				<p>State:</p>
+				<select id="select-container" placeholder="State">
+					<option disabled selected>&nbsp&nbsp&nbsp&nbspSelect one</option>
+				</select>
+				<p>Describe your question...</p>
+				<input type="text" class="tall">
+				<input type="submit" value="Start Chat" class="button">
+				<p class="note"><span style="color:#FFCCCB">*</span>Required field</p>
+			</form>
+		</div>
+		<div class="foot"><img class="logo" src="assets/logo-tc.png"></div>
+	</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		var States = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+		States.forEach(function(state){
+			$("#select-container").append('<option value="' + state +'">&nbsp&nbsp&nbsp&nbsp' + state + '</option>');
+		})
+	});
+</script> 
+</html>
